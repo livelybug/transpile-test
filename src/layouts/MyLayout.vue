@@ -65,7 +65,7 @@
 <script>
 /* eslint-disable */
 import { openURL } from 'quasar';
-import { filter, forEach } from 'p-iteration';
+// import { filter, forEach } from 'p-iteration';
 
 export default {
   name: 'MyLayout',
@@ -79,7 +79,7 @@ export default {
     async handler({ bmap }) {
       console.log(bmap);
       const words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
-      await filter(words, x => (x.length > 1));
+      await this.$iteration.filter(words, x => (x.length > 1));
     },
     async logNumbers() {
       const delay = ms => new Promise(resolve => setTimeout(() => resolve(ms), ms));
@@ -89,7 +89,7 @@ export default {
         delay(300),
         100,
       ];
-      await forEach(numbers, (number) => {
+      await this.$iteration.forEach(numbers, (number) => {
         console.log(number);
       });
     },
